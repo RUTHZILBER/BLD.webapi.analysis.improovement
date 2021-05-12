@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BLL.DB" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCJAAAQCAAAQAAAgAAABBEAAAAEAIAAAABIAAAAIBAg=</HashCode>
+      <FileName>DB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Tag" Collapsed="true">
+    <Position X="25.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Tag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.HebrewNLP" Collapsed="true">
+    <Position X="29.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAA=</HashCode>
+      <FileName>HebrewNLP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Improveement" Collapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAABBAAAAAAAIAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Improveement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ObjectDumper" Collapsed="true">
+    <Position X="22.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACQAAAAAAAAAAAEgQAEAAAACAAAAAEAAAEAAAA=</HashCode>
+      <FileName>ObjectDumber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ProgramAndFunction" Collapsed="true">
+    <Position X="24" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAQBCiAlQAIJIAgAELgAyBwQQTiIRgAEwgwCEIiCCA=</HashCode>
+      <FileName>ProgramAndFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.RequestResult" Collapsed="true">
+    <Position X="25.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAAIAAAAAA=</HashCode>
+      <FileName>RequestResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.DWord" Collapsed="true">
+    <Position X="24" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DWord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ValidateUtilities" Collapsed="true">
+    <Position X="27.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAQAQAAAAAAAAAAAIAABAAAAA=</HashCode>
+      <FileName>ValidateUtilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.WordInform" Collapsed="true">
+    <Position X="29.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAACAIAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>WordInform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Xdb" Collapsed="true">
+    <Position X="22.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Xdb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Requests.BaseRequest" Collapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Requests\BaseRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Requests.SoundexRequest" Collapsed="true">
+    <Position X="17.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Models\Requests\Soundex\SoundexRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Requests.Morphology.AnalyzeRequest" Collapsed="true">
+    <Position X="1.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAQAAAAAAAAACAAAAAAAAAAAAAAACAAAAIAAAA=</HashCode>
+      <FileName>Models\Requests\Morphology\AnalyzeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Requests.Morphology.NormalizeRequest" Collapsed="true">
+    <Position X="6.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAIACAAAAIAAAA=</HashCode>
+      <FileName>Models\Requests\Morphology\NormalizeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Requests.Names.NamesAnalyzeRequest" Collapsed="true">
+    <Position X="13" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Models\Requests\Names\NamesAnalyzeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Requests.Names.TranslationRequest" Collapsed="true">
+    <Position X="15.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABACAAACAAAAAAAAA=</HashCode>
+      <FileName>Models\Requests\Names\TranslationRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Requests.Ner.NerCitiesRequest" Collapsed="true">
+    <Position X="19.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIACAAAAIAAAA=</HashCode>
+      <FileName>Models\Requests\Ner\NerCitiesRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Requests.Phonetic.PhoneticRequest" Collapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Models\Requests\Phonetic\PhoneticRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Requests.PreProcess.SentencerRequest" Collapsed="true">
+    <Position X="8.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Requests\PreProcess\SentencerRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Requests.PreProcess.TokenizerRequest" Collapsed="true">
+    <Position X="10.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAIAAAA=</HashCode>
+      <FileName>Models\Requests\PreProcess\TokenizerRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Respone.ErrorResponse" Collapsed="true">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Respone\ErrorResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Respone.Morphology.MorphInfo" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAQAKAAACggAAICACAAgCAAIIgABAAAAgAAAA=</HashCode>
+      <FileName>Models\Respone\Morphology\MorphInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Models.Respone.Names.NameInfo" Collapsed="true">
+    <Position X="27.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAg=</HashCode>
+      <FileName>Models\Respone\Names\NameInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Services.Morphology.HebrewMorphology" Collapsed="true">
+    <Position X="27.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAQAAAAAAQAIAAAIACAAAACACAAACAAABCACAA=</HashCode>
+      <FileName>Services\Morphology\HebrewMorphology.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Services.Names.NameAnalyzer" Collapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Names\NameAnalyzer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Services.Names.NameTranslation" Collapsed="true">
+    <Position X="29.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Services\Names\NameTranslation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Services.Preprocess.Sentencer" Collapsed="true">
+    <Position X="27.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Services\Preprocess\Sentencer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Services.Preprocess.Tokenizer" Collapsed="true">
+    <Position X="25.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAEAAAAAAAAAAAAAAAgAQAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Services\Preprocess\Tokenizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Services.Service&lt;TRequest&gt;" Collapsed="true">
+    <Position X="29.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAQAAAAAAAAAAAAAAAAAABAAAAAAAAAEA=</HashCode>
+      <FileName>Services\Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Services.Soundex.Soundexer" Collapsed="true">
+    <Position X="22.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Services\Soundex\Soundexer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="BLL.Analizing" Collapsed="true">
+    <Position X="22.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABCKSQAAIAACAAgiEZAwAAAACEAACGASAAAgWKoAA=</HashCode>
+      <FileName>DWord.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BLL.Models.Requests.Morphology.NormalizationType" Collapsed="true">
+    <Position X="29.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAACAAAAAAAAA=</HashCode>
+      <FileName>Models\Requests\Morphology\NormalizationType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BLL.Models.Requests.Names.Language" Collapsed="true">
+    <Position X="27.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Requests\Names\Language.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BLL.Models.Requests.Phonetic.UIPhoneticType" Collapsed="true">
+    <Position X="22.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAACAAAAAAIAAA=</HashCode>
+      <FileName>Models\Requests\Phonetic\UIPhoneticType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BLL.Models.Respone.Morphology.ConstructState" Collapsed="true">
+    <Position X="24" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAEIAAAA=</HashCode>
+      <FileName>Models\Respone\Morphology\ConstructState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BLL.Models.Respone.Morphology.Gender" Collapsed="true">
+    <Position X="25.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAQAAAAAAAAAAAAAAAAAAQAIAAAA=</HashCode>
+      <FileName>Models\Respone\Morphology\Gender.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BLL.Models.Respone.Morphology.PartOfSpeech" Collapsed="true">
+    <Position X="22.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAJAAASCGAAAABAAAKAAAAAAAQoEgAAA=</HashCode>
+      <FileName>Models\Respone\Morphology\PartOfSpeech.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BLL.Models.Respone.Morphology.Person" Collapsed="true">
+    <Position X="24" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAwABAAAAAAgAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Respone\Morphology\Person.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BLL.Models.Respone.Morphology.PrepositionChars" Collapsed="true">
+    <Position X="25.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQQAAAAACAAQgAAQCAAAAAAAgICAAjABAAAAAAAAA=</HashCode>
+      <FileName>Models\Respone\Morphology\PrepositionChars.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BLL.Models.Respone.Morphology.Subordination" Collapsed="true">
+    <Position X="27.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAABAAUCAAEAAAAgAAAAAACAAAACAAAI=</HashCode>
+      <FileName>Models\Respone\Morphology\Subordination.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BLL.Models.Respone.Morphology.Tense" Collapsed="true">
+    <Position X="29.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQABAAAAAAAACAAAAQAAAAAAkAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Respone\Morphology\Tense.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Ballad120Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="songId" />
+          </Key>
+          <Property Name="songId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="songName" Type="nvarchar" MaxLength="400" />
+          <Property Name="songContect" Type="text" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="isPermit" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tagName" Type="nvarchar" MaxLength="400" />
+          <Property Name="points" Type="int" Nullable="false" />
+          <Property Name="songId" Type="int" />
+        </EntityType>
+        <EntityType Name="Usr">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="40" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="notingTime" Type="date" />
+          <Property Name="comment" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
+        <Association Name="FK__Song__userId__7B5B524B">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Song" Type="Self.Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Song">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tag__songId__7E37BEF6">
+          <End Role="Song" Type="Self.Song" Multiplicity="0..1" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="songId" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="songId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Ballad120ModelStoreContainer">
+          <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usr" EntityType="Self.Usr" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Song__userId__7B5B524B" Association="Self.FK__Song__userId__7B5B524B">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Song" EntitySet="Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tag__songId__7E37BEF6" Association="Self.FK__Tag__songId__7E37BEF6">
+            <End Role="Song" EntitySet="Song" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Ballad120Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="songId" />
+          </Key>
+          <Property Name="songId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="songName" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="songContect" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="isPermit" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__Song__userId__3B75D760" FromRole="Song" ToRole="Usr" />
+          <NavigationProperty Name="Tags" Relationship="Ballad120Model.FK__Tag__songId__7E37BEF6" FromRole="Song" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Usr">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="firstName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="notingTime" Type="DateTime" Precision="0" />
+          <Property Name="comment" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Songs" Relationship="Self.FK__Song__userId__3B75D760" FromRole="Usr" ToRole="Song" />
+        </EntityType>
+        <Association Name="FK__Song__userId__3B75D760">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Song" Type="Self.Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Song">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Ballad120Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Songs" EntityType="Self.Song" />
+          <EntitySet Name="Usrs" EntityType="Self.Usr" />
+          <AssociationSet Name="FK__Song__userId__3B75D760" Association="Self.FK__Song__userId__3B75D760">
+            <End Role="Usr" EntitySet="Usrs" />
+            <End Role="Song" EntitySet="Songs" />
+          </AssociationSet>
+          <EntitySet Name="Tags" EntityType="Ballad120Model.Tag" />
+          <AssociationSet Name="FK__Tag__songId__7E37BEF6" Association="Ballad120Model.FK__Tag__songId__7E37BEF6">
+            <End Role="Song" EntitySet="Songs" />
+            <End Role="Tag" EntitySet="Tags" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tagName" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="points" Type="Int32" Nullable="false" />
+          <Property Name="songId" Type="Int32" />
+          <NavigationProperty Name="Song" Relationship="Ballad120Model.FK__Tag__songId__7E37BEF6" FromRole="Tag" ToRole="Song" />
+        </EntityType>
+        <Association Name="FK__Tag__songId__7E37BEF6">
+          <End Type="Ballad120Model.Song" Role="Song" Multiplicity="0..1" />
+          <End Type="Ballad120Model.Tag" Role="Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="songId" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="songId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Ballad120ModelStoreContainer" CdmEntityContainer="Ballad120Entities">
+          <EntitySetMapping Name="Songs">
+            <EntityTypeMapping TypeName="Ballad120Model.Song">
+              <MappingFragment StoreEntitySet="Song">
+                <ScalarProperty Name="songId" ColumnName="songId" />
+                <ScalarProperty Name="songName" ColumnName="songName" />
+                <ScalarProperty Name="songContect" ColumnName="songContect" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="isPermit" ColumnName="isPermit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usrs">
+            <EntityTypeMapping TypeName="Ballad120Model.Usr">
+              <MappingFragment StoreEntitySet="Usr">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="notingTime" ColumnName="notingTime" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="Ballad120Model.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="songId" ColumnName="songId" />
+                <ScalarProperty Name="points" ColumnName="points" />
+                <ScalarProperty Name="tagName" ColumnName="tagName" />
+                <ScalarProperty Name="tagId" ColumnName="tagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
