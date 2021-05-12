@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
@@ -124,7 +124,7 @@ namespace BLL
         {
             string lastWordDitty1 = "", firstWordDitty1 = "", lastWordDitty2 = "", firstWordDitty2 = "";
             //המילה הראשונה והאחרונה בפזמון חייבת לפתוח או לסגר תווית
-            string ditty = LongestWords(song);//קבלת הפזמון הראשון
+            string ditty = longestWords(song);//קבלת הפזמון הראשון
             if (ditty != "")
             {
                 if (ditty[0] == ' ')
@@ -179,7 +179,7 @@ namespace BLL
 
 
             //כנ"ל גם בתת הפזמון
-            string ditty2 = LongestWordsLevelIndex(song, 2);
+            string ditty2 = longestWordsLevelIndex(song, 2);
             if (ditty2 != "")
             {
                 if (ditty2[0] == ' ')
