@@ -1683,5 +1683,10 @@ namespace BLL
             }
 
         }
+
+    public void Method()
+    {
+
     }
+  }
 }
