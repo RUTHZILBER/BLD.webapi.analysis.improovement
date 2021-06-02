@@ -17,16 +17,23 @@ namespace BLL
     /// שיפור התגיות לפי הקלדות המשתמשים
     /// </summary>
     public class Improveement
+  {
+    public int Property
     {
-       
+      get => default(int);
+      set
+      {
+      }
+    }
 
-        /// <summary>
-        /// פונקציה למציאת אינדקס של תת מערך , פונצית עזר לבאה GSIS
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public static List<int> StartingIndexString(string[] x, string[] y, Ballad120Entities ent)
+
+    /// <summary>
+    /// פונקציה למציאת אינדקס של תת מערך , פונצית עזר לבאה GSIS
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
+    public static List<int> StartingIndexString(string[] x, string[] y, Ballad120Entities ent)
         {
             List<int> index = Enumerable.Range(0, x.Length - y.Length + 1).ToList();
             for (int i = 0; i < y.Length; i++)
@@ -1686,7 +1693,7 @@ namespace BLL
 
     public void Method()
     {
-
+      throw new System.NotImplementedException();
     }
   }
 }

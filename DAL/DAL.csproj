@@ -68,7 +68,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BalladSql.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Song.cs">
       <DependentUpon>BalladSql.tt</DependentUpon>

@@ -1,63 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="DTO.DtoSong" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="DTO.DtoSong">
+    <Position X="0.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAACQARAAACAAAAAAAAAAAAAAAQAIA=</HashCode>
       <FileName>DtoSong.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DTO.DtoTag" Collapsed="true">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+  <Class Name="DTO.DtoTag">
+    <Position X="3" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAQAQAABAQAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DtoTag.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DTO.DtoTagsNameSong" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+  <Class Name="DTO.DtoTagsNameSong">
+    <Position X="7.25" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>IALQAAAAAAAAAAAACQABAAAAAAAAAAAAAAAAAAEAAIA=</HashCode>
       <FileName>DtoTagsNameSong.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DTO.DtoTagSong" Collapsed="true">
-    <Position X="0.5" Y="1.5" Width="1.5" />
+  <Class Name="DTO.DtoTagSong">
+    <Position X="2.25" Y="3.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAABCQABAAACCAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>DtoTagSong.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DTO.DtoText" Collapsed="true">
-    <Position X="2.25" Y="1.5" Width="1.5" />
+  <Class Name="DTO.DtoText">
+    <Position X="7.25" Y="4" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>DtoText.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DTO.DtoUsr" Collapsed="true">
-    <Position X="4" Y="1.5" Width="1.5" />
+  <Class Name="DTO.DtoUsr">
+    <Position X="5.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAABAAAAgiAAAAAAAEAAAAAAAAgAACgEAAAA=</HashCode>
       <FileName>DtoUsr.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DTO.Text" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+  <Class Name="DTO.Text">
+    <Position X="9.5" Y="4" Width="2" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Text.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DTO.TextCode" Collapsed="true">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+  <Class Name="DTO.TextCode">
+    <Position X="4.75" Y="4" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>TextCode.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DTO.TextUserId" Collapsed="true">
-    <Position X="4" Y="2.5" Width="1.5" />
+  <Class Name="DTO.TextUserId">
+    <Position X="10" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAA=</HashCode>
       <FileName>TextUserId.cs</FileName>
