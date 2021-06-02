@@ -98,7 +98,7 @@ namespace BALLAD.Areas.HelpPage
 
                     // Fill in the other information needed to invoke the PageResult<T> constuctor
                     Type[] parameterTypes = new Type[] { itemsType, typeof(Uri), typeof(long?), };
-                    object[] parameters = new object[] { items, null, (long)ObjectGenerator.DefaultCollectionSize, };
+                    object[] parameters = new object[] { items, null, ObjectGenerator.DefaultCollectionSize, };
 
                     // Call PageResult(IEnumerable<T> items, Uri nextPageLink, long? count) constructor
                     ConstructorInfo constructor = type.GetConstructor(parameterTypes);

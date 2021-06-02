@@ -9,21 +9,11 @@ using BLL.Services.Morphology;
 
 namespace BLL
 {
-    /// <summary>
-    /// enum for information about the tags, how to cut or join...
-    /// </summary>
-    //enum Demand
-    //{
-    //    zero = 0, first = 1, last = 2, between = 4, alone = 8, vav = 16, vavCon = 32, kaf = 64, lamed = 128, bet = 256
-    //}
+
     //בכל שיר בממוצע 75 מילים, וכל מילה בת שלש וחצי תווים +רוח
 
     public class ProgramAndFunction
-    {
-        /// <summary>
-        /// 3 enum for information about the tags, how to cut or join...
-        /// </summary>
-        /// 
+    { 
 
         //בכל שיר בממוצע 75 מילים, וכל מילה בת שלש וחצי תווים +רוח
 
@@ -303,8 +293,8 @@ namespace BLL
         /// <returns>התגיות וניתוחן לפי אינם בינארי</returns>
         public static List<List<DWord>> getMorphList(string song)
         {
-            long value;
-            long allBitsOn = (long)Analizing.all;// 1099511627775;//בזמן הנתוח, התיחסות רק בפעם הראשונה
+            Analizing value;
+            Analizing allBitsOn = Analizing.all;// 1099511627775;//בזמן הנתוח, התיחסות רק בפעם הראשונה
                                                  //allBitsOn: 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 
             List<List<List<MorphInfo>>> morphInfos3 = new List<List<List<MorphInfo>>>() { HebrewMorphology.AnalyzeSentence(song) };
@@ -316,7 +306,7 @@ namespace BLL
                 tagits.Add(new List<DWord>());
                 tagits[i].Add(new DWord(Analizing.zero, strgs[i]));
             }
-            long subordination, prepositionchars, partOfSpeech, gender, person, constructstate, tense;//עבור תוצאות הנתוח ופינוחם לפי האינם שהוגדר
+           long subordination, prepositionchars, partOfSpeech, gender, person, constructstate, tense;//עבור תוצאות הנתוח ופינוחם לפי האינם שהוגדר
 
             for (int i = 0; i < strgs.Length; i++)
             {
@@ -329,34 +319,34 @@ namespace BLL
                     {
 
                         value = 0;
-                        subordination = (long)item.Subordination;
-                        prepositionchars = (long)item.PrepositionChars;
-                        partOfSpeech = (long)item.PartOfSpeech;
+                        subordination =(long) item.Subordination;
+                        prepositionchars =(long) item.PrepositionChars;
+                        partOfSpeech =(long) item.PartOfSpeech;
                         gender = (long)item.Gender;
-                        person = (long)item.Person;
-                        constructstate = (long)item.ConstructState;
-                        tense = (long)item.Tense;
+                        person =(long) item.Person;
+                        constructstate =(long) item.ConstructState;
+                        tense =(long) item.Tense;
 
                         //שמוש בנתוחים של הספריה לפענוח סוג התגית לפי האינם שהוגדר כאמור במחלקת תגית
                         if (item.Vav == true)//אם יש וו של משה וכלב
-                            value = (long)Analizing.vav | value | (long)tagits[i][0].Ana;//האינם יסומן כוו, קימת פונקציה בהמשך לבדיקת אפיון הוו: מחבר או מפריד
+                            value =Analizing.vav | value |tagits[i][0].Ana;//האינם יסומן כוו, קימת פונקציה בהמשך לבדיקת אפיון הוו: מחבר או מפריד
                         switch (subordination)
                         {
 
                             case 1:
-                                value = (long)Analizing.shin | (long)tagits[i][0].Ana | value;
+                                value = Analizing.shin | tagits[i][0].Ana | value;
                                 break;
                             case 2:
-                                value = (long)Analizing.kshe | (long)tagits[i][0].Ana | value;
+                                value = Analizing.kshe | tagits[i][0].Ana | value;
                                 break;
                             case 3:
-                                value = (long)Analizing.lekshe | (long)tagits[i][0].Ana | value;
+                                value = Analizing.lekshe | tagits[i][0].Ana | value;
                                 break;
                             case 7:
-                                value = (long)Analizing.he | (long)tagits[i][0].Ana | value;
+                                value = Analizing.he | tagits[i][0].Ana | value;
                                 break;
                             case 8:
-                                value = (long)Analizing.he | (long)Analizing.sheha | (long)tagits[i][0].Ana | value;
+                                value = Analizing.he | Analizing.sheha | tagits[i][0].Ana | value;
                                 break;
 
 
@@ -366,40 +356,40 @@ namespace BLL
                         switch (prepositionchars)
                         {
                             case 1:
-                                value = (long)Analizing.bet | (long)tagits[i][0].Ana | value;
+                                value = Analizing.bet | tagits[i][0].Ana | value;
                                 break;
                             case 8:
-                                value = (long)Analizing.mem | (long)Analizing.kaf | (long)tagits[i][0].Ana | value;
+                                value = Analizing.mem | Analizing.kaf | tagits[i][0].Ana | value;
                                 break;
                             case 4:
-                                value = (long)Analizing.kaf | (long)tagits[i][0].Ana | value;
+                                value = Analizing.kaf | tagits[i][0].Ana | value;
                                 break;
                             case 5:
-                                value = (long)Analizing.kaf | (long)Analizing.bet | (long)tagits[i][0].Ana | value;
+                                value = Analizing.kaf | Analizing.bet | tagits[i][0].Ana | value;
                                 break;
                             case 6:
-                                value = (long)Analizing.lamed | (long)Analizing.bet | (long)tagits[i][0].Ana | value;
+                                value = Analizing.lamed | Analizing.bet | tagits[i][0].Ana | value;
                                 break;
                             case 7:
-                                value = (long)Analizing.kaf | (long)Analizing.mem | (long)tagits[i][0].Ana | value;
+                                value = Analizing.kaf | Analizing.mem | tagits[i][0].Ana | value;
                                 break;
                             case 3:
-                                value = (long)Analizing.lamed | (long)tagits[i][0].Ana | value;
+                                value = Analizing.lamed | tagits[i][0].Ana | value;
                                 break;
                             case 12:
-                                value = (long)Analizing.lamed | (long)Analizing.kaf | (long)tagits[i][0].Ana | value;
+                                value = Analizing.lamed | Analizing.kaf | tagits[i][0].Ana | value;
                                 break;
                             case 2:
-                                value = (long)Analizing.mem | (long)tagits[i][0].Ana | value;
+                                value = Analizing.mem | tagits[i][0].Ana | value;
                                 break;
                             case 10:
-                                value = (long)Analizing.bet | (long)Analizing.mem | (long)tagits[i][0].Ana | value;
+                                value = Analizing.bet | Analizing.mem | tagits[i][0].Ana | value;
                                 break;
                             case 9:
-                                value = (long)Analizing.kaf | (long)Analizing.mem | (long)tagits[i][0].Ana | value;
+                                value = Analizing.kaf | Analizing.mem | tagits[i][0].Ana | value;
                                 break;
                             case 11:
-                                value = (long)Analizing.lamed | (long)Analizing.mem | (long)tagits[i][0].Ana | value;
+                                value = Analizing.lamed | Analizing.mem | tagits[i][0].Ana | value;
                                 break;
 
 
@@ -411,37 +401,37 @@ namespace BLL
                         {
 
                             case 1:
-                                value = (long)Analizing.verb | (long)tagits[i][0].Ana | value;
+                                value = Analizing.verb | tagits[i][0].Ana | value;
                                 break;
                             case -1 + 3:
-                                value = (long)Analizing.noun | (long)tagits[i][0].Ana | value;
+                                value = Analizing.noun | tagits[i][0].Ana | value;
                                 break;
                             case -1 + 4:
-                                value = (long)Analizing.adj | (long)tagits[i][0].Ana | value;
+                                value = Analizing.adj | tagits[i][0].Ana | value;
                                 break;
                             case -1 + 5:
-                                value = (long)Analizing.num | (long)tagits[i][0].Ana | value;
+                                value = Analizing.num | tagits[i][0].Ana | value;
                                 break;
                             case -1 + 6:
-                                value = (long)Analizing.yachas | (long)tagits[i][0].Ana | value;
+                                value = Analizing.yachas | tagits[i][0].Ana | value;
                                 break;
                             case -1 + 7:
-                                value = (long)Analizing.pnoun | (long)tagits[i][0].Ana | value;
+                                value = Analizing.pnoun | tagits[i][0].Ana | value;
                                 break;
                             case -1 + 8:
-                                value = (long)Analizing.q | (long)tagits[i][0].Ana | value;
+                                value = Analizing.q | tagits[i][0].Ana | value;
                                 break;
                             case 8:
-                                value = (long)Analizing.con | (long)tagits[i][0].Ana | value;
+                                value = Analizing.con | tagits[i][0].Ana | value;
                                 break;
                             case 10:
-                                value = (long)Analizing.adverb | (long)tagits[i][0].Ana | value;
+                                value = Analizing.adverb | tagits[i][0].Ana | value;
                                 break;
                             case -1 + 12:
-                                value = (long)Analizing.model | (long)tagits[i][0].Ana | value;
+                                value = Analizing.model | tagits[i][0].Ana | value;
                                 break;
                             case -1 + 13:
-                                value = (long)Analizing.name | (long)tagits[i][0].Ana | value;
+                                value = Analizing.name | tagits[i][0].Ana | value;
                                 break;
 
 
@@ -451,13 +441,13 @@ namespace BLL
                         switch (gender)
                         {
                             case 1:
-                                value = (long)Analizing.ben | (long)tagits[i][0].Ana | value;
+                                value = Analizing.ben | tagits[i][0].Ana | value;
                                 break;
                             case 2:
-                                value = (long)Analizing.bat | (long)tagits[i][0].Ana | value;
+                                value = Analizing.bat | tagits[i][0].Ana | value;
                                 break;
                             case 3:
-                                value = (long)Analizing.ben | (long)Analizing.bat | (long)tagits[i][0].Ana | value;
+                                value = Analizing.ben | Analizing.bat | tagits[i][0].Ana | value;
                                 break;
 
                             default:
@@ -466,13 +456,13 @@ namespace BLL
                         switch (person)
                         {
                             case 1:
-                                value = (long)Analizing.first | (long)tagits[i][0].Ana | value;
+                                value = Analizing.first | tagits[i][0].Ana | value;
                                 break;
                             case 2:
-                                value = (long)Analizing.second | (long)tagits[i][0].Ana | value;
+                                value = Analizing.second | tagits[i][0].Ana | value;
                                 break;
                             case 3:
-                                value = (long)Analizing.third | (long)tagits[i][0].Ana | value;
+                                value = Analizing.third | tagits[i][0].Ana | value;
                                 break;
                             default:
                                 break;
@@ -485,7 +475,7 @@ namespace BLL
                                 {
 
                                     {
-                                        value = (long)Analizing.nismach | (long)tagits[i][0].Ana | value & allBitsOn;//מהפעם השניה אין משמעות לשורה זו
+                                        value = Analizing.nismach | tagits[i][0].Ana | value & allBitsOn;//מהפעם השניה אין משמעות לשורה זו
                                         break;
                                     }
 
@@ -499,22 +489,22 @@ namespace BLL
                         switch (tense)
                         {
                             case 1:
-                                value = (long)Analizing.past | (long)tagits[i][0].Ana | value;
+                                value = Analizing.past | tagits[i][0].Ana | value;
                                 break;
                             case 2:
-                                value = (long)Analizing.present | (long)tagits[i][0].Ana | value;
+                                value = Analizing.present | tagits[i][0].Ana | value;
                                 break;
                             case 3:
-                                value = (long)Analizing.future | (long)tagits[i][0].Ana | value;
+                                value = Analizing.future | tagits[i][0].Ana | value;
                                 break;
                             case 4:
-                                value = (long)Analizing.paul | (long)tagits[i][0].Ana | value;
+                                value = Analizing.paul | tagits[i][0].Ana | value;
                                 break;
                             case 5:
-                                value = (long)Analizing.doo | (long)tagits[i][0].Ana | value;
+                                value = Analizing.doo | tagits[i][0].Ana | value;
                                 break;
                             case 6:
-                                value = (long)Analizing.makor | (long)tagits[i][0].Ana | value;
+                                value = Analizing.makor | tagits[i][0].Ana | value;
                                 break;
 
 
@@ -522,7 +512,7 @@ namespace BLL
                                 break;
                         }
 
-                        tagits[i][0].Ana = (Analizing)(value | (long)tagits[i][0].Ana);//השמת הפענוח בתגית
+                        tagits[i][0].Ana = (Analizing)(value | tagits[i][0].Ana);//השמת הפענוח בתגית
                         allBitsOn = 0;//איפוס כדי שיפסיק להתיחס לניתוח זה החל מהפעם השניה, מאפשרות הניתוח הבא
                     }
                 }
@@ -565,7 +555,7 @@ namespace BLL
         /// <returns>האם המילה חיבת להיות בתחילת התגית, כולל הרשימה</returns>
         public static bool mustStart(string str, Analizing ana)
         {
-            if (getListStart(str) || ((long)ana & ((long)Analizing.doo | (long)Analizing.name | (long)Analizing.num)) > 0)//האם המילה נמצאת ברשימת המתחילות, האם היא מספר, האם היא שם
+            if (getListStart(str) || (ana & (Analizing.doo | Analizing.name | Analizing.num)) > 0)//האם המילה נמצאת ברשימת המתחילות, האם היא מספר, האם היא שם
                 return true;
             return false;
         }
@@ -630,28 +620,28 @@ namespace BLL
         {
             for (int i = 1; i < tags.Count - 1; i++)
             {
-                long isVav = (long)Analizing.vav & (long)tags[i].InformTags[0].Ana;//אם יש במילה את וו החבור
-                                                                                   //(long)tags[i-1].InformTags[0].Ana;//אם יש במילה את וו החבור
+                Analizing isVav = Analizing.vav & tags[i].InformTags[0].Ana;//אם יש במילה את וו החבור
+                                                                                   //tags[i-1].InformTags[0].Ana;//אם יש במילה את וו החבור
                 if (isVav > 0)//האם יש במילה את וו החבור
                 {
-                    if ((((long)Analizing.first & (long)tags[i - 1].InformTags[0].Ana) > 0) && (((long)Analizing.first & (long)tags[i].InformTags[0].Ana) > 0) || (((long)Analizing.third & (long)tags[i - 1].InformTags[0].Ana) > 0) && (((long)Analizing.third & (long)tags[i].InformTags[0].Ana) > 0) || (((long)Analizing.second & (long)tags[i - 1].InformTags[0].Ana) > 0) && (((long)Analizing.second & (long)tags[i].InformTags[0].Ana) > 0))//אם יש זהות בין 2 המילים שביניהן וו החבור (גוף ראשון זהה שני או שלישי
+                    if (((Analizing.first & tags[i - 1].InformTags[0].Ana) > 0) && ((Analizing.first & tags[i].InformTags[0].Ana) > 0) || ((Analizing.third & tags[i - 1].InformTags[0].Ana) > 0) && ((Analizing.third & tags[i].InformTags[0].Ana) > 0) || ((Analizing.second & tags[i - 1].InformTags[0].Ana) > 0) && ((Analizing.second & tags[i].InformTags[0].Ana) > 0))//אם יש זהות בין 2 המילים שביניהן וו החבור (גוף ראשון זהה שני או שלישי
                     {
-                        if (((((long)Analizing.paul & (long)tags[i - 1].InformTags[0].Ana) > 0) && ((long)Analizing.paul & (long)tags[i].InformTags[0].Ana) > 0) || ((((long)Analizing.doo & (long)tags[i - 1].InformTags[0].Ana) > 0) && ((long)Analizing.doo & (long)tags[i].InformTags[0].Ana) > 0) || ((((long)Analizing.past & (long)tags[i - 1].InformTags[0].Ana) > 0) && ((long)Analizing.past & (long)tags[i].InformTags[0].Ana) > 0) || ((((long)Analizing.present & (long)tags[i - 1].InformTags[0].Ana) > 0) && ((long)Analizing.present & (long)tags[i].InformTags[0].Ana) > 0) || ((((long)Analizing.future & (long)tags[i - 1].InformTags[0].Ana) > 0) && ((long)Analizing.future & (long)tags[i].InformTags[0].Ana) > 0) || ((((long)Analizing.makor & (long)tags[i - 1].InformTags[0].Ana) > 0) && ((long)Analizing.makor & (long)tags[i].InformTags[0].Ana) > 0) || ((((long)Analizing.adverb & (long)tags[i - 1].InformTags[0].Ana) > 0) && ((long)Analizing.adverb & (long)tags[i].InformTags[0].Ana) > 0))//אם יש זהות בין המילים בפועל, תואר הפועל, או בזמן
+                        if ((((Analizing.paul & tags[i - 1].InformTags[0].Ana) > 0) && (Analizing.paul & tags[i].InformTags[0].Ana) > 0) || (((Analizing.doo & tags[i - 1].InformTags[0].Ana) > 0) && (Analizing.doo & tags[i].InformTags[0].Ana) > 0) || (((Analizing.past & tags[i - 1].InformTags[0].Ana) > 0) && (Analizing.past & tags[i].InformTags[0].Ana) > 0) || (((Analizing.present & tags[i - 1].InformTags[0].Ana) > 0) && (Analizing.present & tags[i].InformTags[0].Ana) > 0) || (((Analizing.future & tags[i - 1].InformTags[0].Ana) > 0) && (Analizing.future & tags[i].InformTags[0].Ana) > 0) || (((Analizing.makor & tags[i - 1].InformTags[0].Ana) > 0) && (Analizing.makor & tags[i].InformTags[0].Ana) > 0) || (((Analizing.adverb & tags[i - 1].InformTags[0].Ana) > 0) && (Analizing.adverb & tags[i].InformTags[0].Ana) > 0))//אם יש זהות בין המילים בפועל, תואר הפועל, או בזמן
                         {
-                            long tag = ((long)Analizing.vav);
+                            Analizing tag = (Analizing.vav);
                             tag = ~tag;//יש לבטל את הנתוח של האות וו הרגילה
-                            tags[i].InformTags[0].Ana = (Analizing)((long)tags[i].InformTags[0].Ana & tag);
-                            tags[i].InformTags[0].Ana = (Analizing)((long)Analizing.vavCon | (long)tags[i].InformTags[0].Ana);//ולהפוך אותו לניתוח של וו החבור שאינה מפרידה בין המשפטים
+                            tags[i].InformTags[0].Ana = (Analizing)(tags[i].InformTags[0].Ana & tag);
+                            tags[i].InformTags[0].Ana = (Analizing)(Analizing.vavCon | tags[i].InformTags[0].Ana);//ולהפוך אותו לניתוח של וו החבור שאינה מפרידה בין המשפטים
                         }
                     }
                     else
                     {
-                        if ((((long)Analizing.name & (long)tags[i - 1].InformTags[0].Ana) > 0) && (((long)Analizing.name & (long)tags[i].InformTags[0].Ana) > 0) || (((long)Analizing.noun & (long)tags[i - 1].InformTags[0].Ana) > 0) && (((long)Analizing.noun & (long)tags[i].InformTags[0].Ana) > 0) || (((long)Analizing.pnoun & (long)tags[i - 1].InformTags[0].Ana) > 0) && (((long)Analizing.pnoun & (long)tags[i].InformTags[0].Ana) > 0) || (((long)Analizing.adverb & (long)tags[i - 1].InformTags[0].Ana) > 0) && (((long)Analizing.adverb & (long)tags[i].InformTags[0].Ana) > 0))//אם יש זהות בתחום כמו: שם ,מקום, תואר הפועל
+                        if (((Analizing.name & tags[i - 1].InformTags[0].Ana) > 0) && ((Analizing.name & tags[i].InformTags[0].Ana) > 0) || ((Analizing.noun & tags[i - 1].InformTags[0].Ana) > 0) && ((Analizing.noun & tags[i].InformTags[0].Ana) > 0) || ((Analizing.pnoun & tags[i - 1].InformTags[0].Ana) > 0) && ((Analizing.pnoun & tags[i].InformTags[0].Ana) > 0) || ((Analizing.adverb & tags[i - 1].InformTags[0].Ana) > 0) && ((Analizing.adverb & tags[i].InformTags[0].Ana) > 0))//אם יש זהות בתחום כמו: שם ,מקום, תואר הפועל
                         {
-                            long tag = ((long)Analizing.vav);
+                            Analizing tag = (Analizing.vav);
                             tag = ~tag;//יש לבטל את הנתוח של האות וו הרגילה
-                            tags[i].InformTags[0].Ana = (Analizing)((long)tags[i].InformTags[0].Ana & tag);
-                            tags[i].InformTags[0].Ana = (Analizing)((long)Analizing.vavCon | (long)tags[i].InformTags[0].Ana);//ולהפוך אותו לניתוח של וו החבור שאינה מפרידה בין המשפטים
+                            tags[i].InformTags[0].Ana = (tags[i].InformTags[0].Ana & tag);
+                            tags[i].InformTags[0].Ana = (Analizing)(Analizing.vavCon | tags[i].InformTags[0].Ana);//ולהפוך אותו לניתוח של וו החבור שאינה מפרידה בין המשפטים
                         }
 
                     }
@@ -789,17 +779,17 @@ namespace BLL
                 }
 
 
-                long result2 = (long)Analizing.nismach;//ניסמך
+                Analizing result2 = Analizing.nismach;//ניסמך
 
-                long result = (long)Analizing.vavCon | (long)Analizing.mem | (long)Analizing.shin | (long)Analizing.he | (long)Analizing.lamed | (long)Analizing.bet | (long)Analizing.kaf;//הביטים של אותיות משה לב  או וו החבור דלוקים
-                result = result & (long)current[0].Ana;//חבור לוגי, האם המילה שפותחת את התגית מכילה אותיות משה לב
+                Analizing result = Analizing.vavCon | Analizing.mem | Analizing.shin | Analizing.he | Analizing.lamed | Analizing.bet | Analizing.kaf;//הביטים של אותיות משה לב  או וו החבור דלוקים
+                result = result & current[0].Ana;//חבור לוגי, האם המילה שפותחת את התגית מכילה אותיות משה לב
 
-                if (getListMiddle(current[0].Word) == true || result > 0 || getListMiddle(prev[prev.Count - 1].Word) || ((long)prev[prev.Count - 1].Ana & result2) > 0)//אם המילה הראשונה שבתגית מכילה אותיות משה לב או שהיא אחת מהמילים הקימות באמצע תגית, או שהמילה שלפניה היא נסמך/חייבת להיות באמצע תגית
+                if (getListMiddle(current[0].Word) == true || result > 0 || getListMiddle(prev[prev.Count - 1].Word) || (prev[prev.Count - 1].Ana & result2) > 0)//אם המילה הראשונה שבתגית מכילה אותיות משה לב או שהיא אחת מהמילים הקימות באמצע תגית, או שהמילה שלפניה היא נסמך/חייבת להיות באמצע תגית
                 {
 
-                    result = (long)Analizing.vavCon | (long)Analizing.mem | (long)Analizing.shin | (long)Analizing.he | (long)Analizing.lamed | (long)Analizing.bet | (long)Analizing.kaf;//הביטים של אותיות משה לב  או וו החבור דלוקים
-                    result = result & (long)next[0].Ana;//חבור לוגי, האם המילה שפותחת את התגית מכילה אותיות משה לב
-                    if (((index + 1) < tagits.Count()) && (getListMiddle(current[current.Count - 1].Word) == true || getListMiddle(next[0].Word) || ((long)current[current.Count - 1].Ana & result2) > 0 || result > 0))//אם גם המילה האחרונה שבתגית מכילה מילה שחיבת להיות בסוף תגית או מילה נסמכת
+                    result = Analizing.vavCon | Analizing.mem | Analizing.shin | Analizing.he | Analizing.lamed | Analizing.bet | Analizing.kaf;//הביטים של אותיות משה לב  או וו החבור דלוקים
+                    result = result & next[0].Ana;//חבור לוגי, האם המילה שפותחת את התגית מכילה אותיות משה לב
+                    if (((index + 1) < tagits.Count()) && (getListMiddle(current[current.Count - 1].Word) == true || getListMiddle(next[0].Word) || (current[current.Count - 1].Ana & result2) > 0 || result > 0))//אם גם המילה האחרונה שבתגית מכילה מילה שחיבת להיות בסוף תגית או מילה נסמכת
                                                                                                                                                                                                                         //וגם זו אינה תגית אחרונה
                     {
 
@@ -838,16 +828,16 @@ namespace BLL
 
 
 
-                    long result2 = (long)Analizing.nismach;//ניסמך
+                    Analizing result2 = Analizing.nismach;//ניסמך
 
-                    long result = (long)Analizing.vavCon | (long)Analizing.mem | (long)Analizing.shin | (long)Analizing.he | (long)Analizing.lamed | (long)Analizing.bet | (long)Analizing.kaf;//הביטים של אותיות משה לב  או וו החבור דלוקים
-                    result = result & (long)current[0].Ana;//חבור לוגי, האם המילה שפותחת את התגית מכילה אותיות משה לב
+                    Analizing result = Analizing.vavCon | Analizing.mem | Analizing.shin | Analizing.he | Analizing.lamed | Analizing.bet | Analizing.kaf;//הביטים של אותיות משה לב  או וו החבור דלוקים
+                    result = result & current[0].Ana;//חבור לוגי, האם המילה שפותחת את התגית מכילה אותיות משה לב
                     if (getListMiddle(current[0].Word) == true || result > 0)//אם המילה הראשונה שבתגית מכילה אותיות משה כלב או שהיא אחת מהמילים הקימות באמצע תגית, או שהמילה שלפניה היא נסמך/חייבת להיות באמצע תגית
                     {
 
-                        result = (long)Analizing.vavCon | (long)Analizing.mem | (long)Analizing.shin | (long)Analizing.he | (long)Analizing.lamed | (long)Analizing.bet | (long)Analizing.kaf;//הביטים של אותיות משה לב  או וו החבור דלוקים
-                        result = result & (long)next[0].Ana;//חבור לוגי, האם המילה שפותחת את התגית מכילה אותיות משה לב
-                        if (getListMiddle(current[current.Count - 1].Word) == true || getListMiddle(next[0].Word) || ((long)current[current.Count - 1].Ana & result2) > 0 || result > 0)//אם גם המילה האחרונה שבתגית מכילה מילה שחיבת להיות בסוף תגית או מילה נסמכת
+                        result = Analizing.vavCon | Analizing.mem | Analizing.shin | Analizing.he | Analizing.lamed | Analizing.bet | Analizing.kaf;//הביטים של אותיות משה לב  או וו החבור דלוקים
+                        result = result & next[0].Ana;//חבור לוגי, האם המילה שפותחת את התגית מכילה אותיות משה לב
+                        if (getListMiddle(current[current.Count - 1].Word) == true || getListMiddle(next[0].Word) || (current[current.Count - 1].Ana & result2) > 0 || result > 0)//אם גם המילה האחרונה שבתגית מכילה מילה שחיבת להיות בסוף תגית או מילה נסמכת
                         {
                             tagits = joinTagForward(tagits, index);//צרף את התגית קדימה 
                             minus_ += 1;//התחוללו שני שנויים
@@ -887,13 +877,13 @@ namespace BLL
                     }
 
 
-                    long result2 = (long)Analizing.nismach;//ניסמך
+                    Analizing result2 = Analizing.nismach;//ניסמך
                                                            //
 
 
-                    long result = (long)Analizing.vavCon | (long)Analizing.mem | (long)Analizing.shin | (long)Analizing.he | (long)Analizing.lamed | (long)Analizing.bet | (long)Analizing.kaf;//הביטים של אותיות משה לב  או וו החבור דלוקים
-                    result = result & (long)current[current.Count - 1].Ana;//חבור לוגי, האם המילה שפותחת את התגית האחרונה מכילה אותיות משה לב
-                    if (getListMiddle(current[current.Count - 1].Word) == true || result > 0 || getListMiddle(prev[prev.Count - 1].Word) || ((long)prev[prev.Count - 1].Ana & result2) > 0)//אם המילה הראשונה שבתגית מכילה אותיות משה כלב או שהיא אחת מהמילים הקימות באמצע תגית, או שהמילה שלפניה היא נסמך/חייבת להיות באמצע תגית
+                    Analizing result = Analizing.vavCon | Analizing.mem | Analizing.shin | Analizing.he | Analizing.lamed | Analizing.bet | Analizing.kaf;//הביטים של אותיות משה לב  או וו החבור דלוקים
+                    result = result & current[current.Count - 1].Ana;//חבור לוגי, האם המילה שפותחת את התגית האחרונה מכילה אותיות משה לב
+                    if (getListMiddle(current[current.Count - 1].Word) == true || result > 0 || getListMiddle(prev[prev.Count - 1].Word) || (prev[prev.Count - 1].Ana & result2) > 0)//אם המילה הראשונה שבתגית מכילה אותיות משה כלב או שהיא אחת מהמילים הקימות באמצע תגית, או שהמילה שלפניה היא נסמך/חייבת להיות באמצע תגית
                     {
 
 
@@ -1105,7 +1095,7 @@ namespace BLL
             List<DWord> current = LTags[index].InformTags;//תגית נוכחית
             for (int i = 0; i < current.Count; i++)
             {
-                if (getListSplit(current[i].Word) == true || ((long)Analizing.vav & (long)current[i].Ana) > 0)
+                if (getListSplit(current[i].Word) == true || (Analizing.vav & current[i].Ana) > 0)
                 {
                     LTags = splitTagInJPoint(LTags, index, i);
 
@@ -1391,8 +1381,8 @@ namespace BLL
                         {
                             if (((i != current.Count - 1
                                 && current[i].Word != current[i + 1].Word) || (i == current.Count - 1))
-                                && ((long)current[i].Ana & (long)Analizing.nismach) == 0
-                                && ((long)current[i].Ana & (long)Analizing.doo) == 0
+                                && (current[i].Ana & Analizing.nismach) == 0
+                                && (current[i].Ana & Analizing.doo) == 0
                                 && current[i].Word != firstWord1 && current[i].Word != firstWord2
                                 && getListStart(current[i].Word) != true
                                 && getListMiddleMust(current[i].Word) != true
@@ -1415,8 +1405,8 @@ namespace BLL
                             && (prev.Count <= 8)
                             && ((i != current.Count - 1
                             && current[i].Word != current[i + 1].Word) || (i == current.Count - 1))
-                            && ((long)current[i].Ana & (long)Analizing.nismach) == 0
-                            && ((long)current[i].Ana & (long)Analizing.doo) == 0
+                            && (current[i].Ana & Analizing.nismach) == 0
+                            && (current[i].Ana & Analizing.doo) == 0
                             && current[i].Word != firstWord1 && current[i].Word != firstWord2
                             && getListStart(current[i].Word) != true
                             && getListMiddleMust(current[i].Word) != true
@@ -1436,12 +1426,11 @@ namespace BLL
 
                         for (i = c; i < c + 2; i++)//לולא שמנסה לפצל את התגית ב2 המקומות שאחרי נקודת הפיצול, הנחה ל10 תווים
                         {
-                            long cc = (long)current[i - 1].Ana;
-                            long bb = (long)Analizing.nismach;
-                            long dd = cc & bb;
+                            
+                            
                             if (
-                               current[i].Word != current[i - 1].Word && (dd) == 0
-                               && ((long)current[i - 1].Ana & (long)Analizing.doo) == 0
+                               current[i].Word != current[i - 1].Word && (current[i - 1].Ana & Analizing.nismach) == 0
+                               && (current[i - 1].Ana & Analizing.doo) == 0
                                && current[i - 1].Word != firstWord1 && current[i - 1].Word != firstWord2
                                && getListStart(current[i - 1].Word) != true
                                && getListMiddleMust(current[i - 1].Word) != true
@@ -1479,8 +1468,8 @@ namespace BLL
                             if (
                                 ((i != current.Count - 1
                                 && current[i].Word != current[i + 1].Word) || (i == current.Count - 1))
-                                && ((long)current[i].Ana & (long)Analizing.nismach) == 0
-                                && ((long)current[i].Ana & (long)Analizing.doo) == 0
+                                && (current[i].Ana & Analizing.nismach) == 0
+                                && (current[i].Ana & Analizing.doo) == 0
                                 && current[i].Word != firstWord1 && current[i].Word != firstWord2
                                 && getListStart(current[i].Word) != true
                                 && getListMiddleMust(current[i].Word) != true
@@ -1501,8 +1490,8 @@ namespace BLL
                         && (prev.Count <= 8)
                         && ((i != current.Count - 1
                         && current[i].Word != current[i + 1].Word) || (i == current.Count - 1))
-                        && ((long)current[i].Ana & (long)Analizing.nismach) == 0
-                        && ((long)current[i].Ana & (long)Analizing.doo) == 0
+                        && (current[i].Ana & Analizing.nismach) == 0
+                        && (current[i].Ana & Analizing.doo) == 0
                         && current[i].Word != firstWord1 && current[i].Word != firstWord2
                         && getListStart(current[i].Word) != true
                         && getListMiddleMust(current[i].Word) != true
@@ -1519,32 +1508,24 @@ namespace BLL
                         }
                         for (i = c; i < c + 2; i++)//לולא שמנסה לפצל את התגית ב2 המקומות שאחרי נקודת הפיצול, הנחה ל10 תווים
                         {
-                            long cc = (long)current[i - 1].Ana;
-                            long bb = (long)Analizing.nismach;
-                            long dd = cc & bb;
+                            
 
                             if (
-                                current[i].Word != current[i - 1].Word && (dd) == 0
-                                && ((long)current[i - 1].Ana & (long)Analizing.doo) == 0
+                                current[i].Word != current[i - 1].Word && (current[i - 1].Ana&Analizing.nismach) == 0
+                                && (current[i - 1].Ana & Analizing.doo) == 0
                                 && current[i - 1].Word != firstWord1 && current[i - 1].Word != firstWord2
                                 && getListStart(current[i - 1].Word) != true
                                 && getListMiddleMust(current[i - 1].Word) != true
                                 && current[i].Word != lastWord1
                                 && current[i].Word != lastWord2 && getListEnd(current[i].Word) != true
                                 && getListMiddleMust(current[i].Word) != true
-                               //&&((long)current[i].Ana & (long)Analizing.mem) == 0 
-                               //&& ((long)current[i].Ana & (long)Analizing.shin) == 0 
-                               //&& ((long)current[i].Ana & (long)Analizing.he) == 0 
-                               //&& ((long)current[i].Ana & (long)Analizing.kaf) == 0
-                               //&&((long)current[i].Ana & (long)Analizing.lamed) == 0 
-                               // && ((long)current[i].Ana & (long)Analizing.vavCon) == 0 
-                               // && ((long)current[i - 1].Ana & (long)Analizing.vav) == 0
+                             
                                )
 
                             {
                                 LTags = splitTagInJPoint(LTags, index, i - 1);//הפיצול
                                 minus = 0;
-                                //Console.WriteLine("-----------------------------------------------------------------------------------");
+                  
                                 return LTags;
                             }
                         }
@@ -1570,8 +1551,8 @@ namespace BLL
                             if (
                                                             ((i != current.Count - 1
                                                             && current[i].Word != current[i + 1].Word) || (i == current.Count - 1))
-                                                            && ((long)current[i].Ana & (long)Analizing.nismach) == 0
-                                                            && ((long)current[i].Ana & (long)Analizing.doo) == 0
+                                                            && (current[i].Ana & Analizing.nismach) == 0
+                                                            && (current[i].Ana & Analizing.doo) == 0
                                                             && current[i].Word != firstWord1
                                                             && current[i].Word != firstWord2
                                                             && getListStart(current[i].Word) != true
@@ -1596,8 +1577,8 @@ namespace BLL
                             index != 0 && (prev.Count <= 8)
                             && ((i != current.Count - 1
                             && current[i].Word != current[i + 1].Word) || (i == current.Count - 1))
-                            && ((long)current[i].Ana & (long)Analizing.nismach) == 0
-                            && ((long)current[i].Ana & (long)Analizing.doo) == 0
+                            && (current[i].Ana & Analizing.nismach) == 0
+                            && (current[i].Ana & Analizing.doo) == 0
                             && current[i].Word != firstWord1 && current[i].Word != firstWord2
                             && getListStart(current[i].Word) != true
                             && getListMiddleMust(current[i].Word) != true
@@ -1617,8 +1598,8 @@ namespace BLL
                         {
                             if (
                                current[i].Word != current[i - 1].Word
-                               && ((long)current[i - 1].Ana & (long)Analizing.nismach) == 0
-                               && ((long)current[i - 1].Ana & (long)Analizing.doo) == 0
+                               && (current[i - 1].Ana & Analizing.nismach) == 0
+                               && (current[i - 1].Ana & Analizing.doo) == 0
                                && current[i - 1].Word != firstWord1 && current[i - 1].Word != firstWord2
                                && getListStart(current[i - 1].Word) != true
                                && getListMiddleMust(current[i - 1].Word) != true
@@ -1876,7 +1857,7 @@ namespace BLL
             Console.InputEncoding = new UTF8Encoding();
 
 
-            Console.WriteLine((long)Tense.FUTURE + " = " + PartOfSpeech.ADVERB);
+            Console.WriteLine(Tense.FUTURE + " = " + PartOfSpeech.ADVERB);
             Console.Write("ds");
 
 

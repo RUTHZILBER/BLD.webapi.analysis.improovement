@@ -95,7 +95,6 @@
     <Compile Include="DWord.cs" />
     <Compile Include="ValidateUtilities.cs" />
     <Compile Include="WordInform.cs" />
-    <Compile Include="Xdb.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
@@ -115,9 +114,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ValidateUtilities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Scripts\MicrosoftAjax.debug.js" />
     <Content Include="Scripts\MicrosoftAjax.js" />
