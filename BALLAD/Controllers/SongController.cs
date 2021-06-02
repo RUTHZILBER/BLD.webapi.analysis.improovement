@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -13,10 +13,12 @@ using DTO;
 
 namespace BALLAD.Controllers
 {
+    
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    
     public class SongController : ApiController
     {
-       
+    public static DB db = new DB();
         // GET: api/Song/5
         public RequestResult Get(int id)
         {
@@ -33,13 +35,13 @@ namespace BALLAD.Controllers
 
         public RequestResult improveTags([FromBody] TextCode textCode)
         {
-            DB dB = new DB();
+           
 
-            RequestResult requestResult1 = dB.improveementTags(textCode.Text, textCode.SongId);
+            RequestResult requestResult = db.improveementTags(textCode.Text, textCode.SongId);
 
 
             int x = 34;
-            return requestResult1;
+            return requestResult;
         }
 
 
@@ -90,16 +92,16 @@ namespace BALLAD.Controllers
 
         }
 
-        [HttpPost]
-        [Route("api/values/addSong2")]
-        // POST: api/Usr
-        public void addSong2([FromBody]string dtoUsr)
-        {
+        //[HttpPost]
+        //[Route("api/values/addSong2")]
+        //// POST: api/Usr
+        //public void addSong2([FromBody]string dtoUsr)
+        //{
 
-            DB dB = new DB();
-            //RequestResult x = dB.InsertUsr(dtoUsr);
+           
+          
 
-        }
+        //}
 
 
     }

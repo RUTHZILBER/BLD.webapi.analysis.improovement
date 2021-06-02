@@ -17,7 +17,7 @@ namespace BLL
     /// שיפור התגיות לפי הקלדות המשתמשים
     /// </summary>
     public class Improveement
-  {
+    {
 
     /// <summary>
     /// פונקציה למציאת אינדקס של תת מערך , פונצית עזר לבאה GSIS

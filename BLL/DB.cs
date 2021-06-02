@@ -12,7 +12,7 @@ namespace BLL
 {
   public class DB
   {
-    Ballad120Entities ent = new Ballad120Entities();
+   public static Ballad120Entities ent = new Ballad120Entities();
     /// <summary>
     /// תקינות לקוח
     /// </summary>
@@ -491,38 +491,6 @@ namespace BLL
               return new RequestResult { Status = true, Message = " song and their tags had sent successfully ", Data = dtoTagSongs };
             }
 
-            //else//הלקוח רוצה את השירים שבבעלותו בלבד
-            //{
-            //    List<DtoTagSong> dtoTagSongs = new List<DtoTagSong>();
-            //    foreach (var song in ent.Songs.Where(i => i.userId == userId).ToList())//השירים של הלקוח בלבד
-            //    {
-
-            //        var e = ent.Tags.Where(i => i.songId == song.songId);
-            //        var tagForSong = (e.Join(ent.Songs, o => o.songId, z => z.songId, (t, s) => new { t.tagId, t.tagName, t.points, s.songId, s.songName, s.songContect, s.userId, s.isPermit }).ToList());
-
-            //        foreach (var tag in tagForSong)
-            //        {
-            //            int currentOfSongId = tag.songId;
-
-
-
-            //            var isThrereASameTag = dtoTagSongs.Where(i => ((i.tagName == tag.tagName) && (i.songId == currentOfSongId))).ToList().Count;
-
-            //            if (isThrereASameTag == 0)
-            //            {
-            //                {
-            //                    dtoTagSongs.Add(new DtoTagSong(tag.tagId, tag.tagName, tag.points, tag.songId, tag.songName, tag.songContect, tag.userId, tag.isPermit));
-            //                }
-
-            //            }
-
-
-            //        }
-            //    }
-
-            //    return new RequestResult { Status = true, Message = " song and their tags had sent successfully ", Data = dtoTagSongs };
-            //}
-
           }
 
 
@@ -954,59 +922,10 @@ namespace BLL
         };
       }
     }
-    ///// <summary>
-    ///// איתור התגית ע''י תוכן תיבת הטקסט מתכני שירים
-    ///// </summary>
-    ///// <param name="text"></param>
-    ///// <param name="userId"></param>
-    ///// <param name="isAll"></param>
-    ///// <returns></returns>
-    //public RequestResult searchImprovementTags(string text, int userId = 0, bool isAll = true)
-    //{
-
-
-    //    return Improveement.searchImprovementTags(text, ent, userId, isAll);
-    //}
-
-    ///// <summary>
-    ///// פונקציה למציאת אינדקס של תת מערך , כתת פונקציה
-    ///// </summary>
-    ///// <param name="x"></param>
-    ///// <param name="y"></param>
-    ///// <returns></returns>
-    //public List<int> StartingIndexString(string[] x, string[] y)
-    //{
-    //    List<int> index = Enumerable.Range(0, x.Length - y.Length + 1).ToList();
-    //    for (int i = 0; i < y.Length; i++)
-    //    {
-    //        index = index.Where(n => x[n + i] == y[i]).ToList();
-    //    }
-    //    return index;
-    //}
-
-    ///// <summary>
-    /////StartingIndexString פונקציה המקבלת 2 מערכים סטרינג ומחזירה רשימה של אינדקסים של תחילת הופעת מערך ווי בתוך איקס, שמוש בפונקציה
-    ///// </summary>
-    ///// <param name="x"></param>
-    ///// <param name="y"></param>
-    ///// <returns></returns>
-    //public List<int> getStartingIndexesString(string[] x, string[] y)
-    //{
-    //    List<int> startsIndexes = new List<int>();
-
-    //    foreach (int i in StartingIndexString(x, y))
-    //    {
-    //        startsIndexes.Add(i);
-    //    }
-    //    return startsIndexes;
-    //}
 
     public RequestResult getMatchSongs(string text, int usrId = 0, string state = "")
     {
       return Improveement.getMatchSongs(text, ent, usrId, state);
-
-
-
     }
 
     /// <summary>
@@ -1024,7 +943,7 @@ namespace BLL
 
     public RequestResult deleteSong(int songId)
     {
-      return DB.deleteSong(ent, songId);
+      return deleteSong(ent, songId);
     }
 
   }
