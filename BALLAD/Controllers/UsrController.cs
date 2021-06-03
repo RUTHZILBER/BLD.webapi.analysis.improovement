@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,9 +12,9 @@ namespace BALLAD.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UsrController : ApiController
     {
-
-        // GET: api/Usr
-        public IEnumerable<string> Get()
+    public DB db = new DB();
+    // GET: api/Usr
+    public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
@@ -50,9 +50,7 @@ namespace BALLAD.Controllers
         
         public RequestResult addUsr([FromBody]DtoUsr dtoUsr)
         {
-
-            DB dB = new DB();
-            RequestResult x = dB.insertUsr(dtoUsr);
+            RequestResult x = db.insertUsr(dtoUsr);
             return x;
         }
 
@@ -62,8 +60,7 @@ namespace BALLAD.Controllers
         public RequestResult updateUsr([FromBody]DtoUsr dtoUsr)
         {
 
-            DB dB = new DB();
-            RequestResult x = dB.updateUsr(dtoUsr);
+            RequestResult x = db.updateUsr(dtoUsr);
             return x;
         }
         [HttpPost]
@@ -71,9 +68,7 @@ namespace BALLAD.Controllers
         // POST: api/Usr
         public RequestResult checkUser([FromBody]DtoUsr dtoUsr)
         {
-
-            DB dB = new DB();
-            RequestResult requestResult=dB.checkUsr(dtoUsr);
+            RequestResult requestResult=db.checkUsr(dtoUsr);
             return requestResult;
         }
 

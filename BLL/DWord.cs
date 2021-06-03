@@ -14,7 +14,7 @@ namespace BLL
    public enum Analizing : long
     {
        
-        zero = 0, ///<summary>A == B</summary>
+        zero = 0, 
         doo = 1, mem = 2, shin = 4, he = 8//צווי__ מ__ש__ה //1
             , vav = 16, vavCon = 32, kaf = 64, lamed = 128//ו__וחבור__כ__ל//2
             , bet = 256, kshe = 512, lekshe = 1024, q = 2048//ב__כש__לכש__שאלה//3

@@ -3,7 +3,7 @@
   <Class Name="BLL.DB">
     <Position X="15.5" Y="3" Width="2" />
     <TypeIdentifier>
-      <HashCode>QCJAAAQCAAAQAAAgAAAABEAAAAEAIAAAABIAAAAIBAg=</HashCode>
+      <HashCode>QCJAAAQCAAAQAAAgQAAABEAAAAEAIAAAgBIAAAAIBAg=</HashCode>
       <FileName>DB.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,7 +24,7 @@
   <Class Name="BLL.Improveement">
     <Position X="15.5" Y="0.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAgBAAAAAAAIAAAAAAIAQAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAAAAAAAAAAAgBAAAAAAAIAAAAAAIAAAAAAA=</HashCode>
       <FileName>Improveement.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -35,11 +35,11 @@
       <FileName>ObjectDumber.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BLL.ProgramAndFunction">
+  <Class Name="BLL.AnalyzingToTags">
     <Position X="21.75" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>CEAQBCiAlQAIJJAgAELgAyBwQQTiIRgQEwggCEAiGCA=</HashCode>
-      <FileName>ProgramAndFunction.cs</FileName>
+      <FileName>AnalyzingToTags.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.RequestResult">

@@ -18,11 +18,11 @@ namespace BALLAD.Controllers
     
     public class SongController : ApiController
     {
-    public static DB db = new DB();
+
+        public DB db = new DB();
         // GET: api/Song/5
         public RequestResult Get(int id)
         {
-            DB db = new DB();
             RequestResult requestResult = db.deleteSong(id);
             return requestResult;
         }
@@ -35,12 +35,7 @@ namespace BALLAD.Controllers
 
         public RequestResult improveTags([FromBody] TextCode textCode)
         {
-           
-
             RequestResult requestResult = db.improveementTags(textCode.Text, textCode.SongId);
-
-
-            int x = 34;
             return requestResult;
         }
 
@@ -51,19 +46,14 @@ namespace BALLAD.Controllers
 
         public RequestResult getMatchSongsList([FromBody] TextUserId textUserId)
         {
-            DB dB = new DB();
-           
-            RequestResult requestResult1 = dB.getMatchSongs(textUserId.Text, textUserId.UsrId, textUserId.State);
-
-            int x = 34;
+            RequestResult requestResult1 = db.getMatchSongs(textUserId.Text, textUserId.UsrId, textUserId.State);
             return requestResult1;
         }
 
         // POST: api/Song
         public RequestResult Post([FromBody]DtoSong dtoSong)
         {
-            DB dB = new DB();
-            return dB.insertSong(dtoSong);
+            return db.insertSong(dtoSong);
         }
 
         // PUT: api/Song/5
@@ -74,8 +64,6 @@ namespace BALLAD.Controllers
         // DELETE: api/Song/5
         public RequestResult Delete(int id)//int a,int b
         {
-            
-            DB db = new DB();
             RequestResult requestResult = db.deleteSong(id);
             return requestResult;
         }
@@ -85,9 +73,7 @@ namespace BALLAD.Controllers
 
         public RequestResult addSong([FromBody]DtoSong dtoSong)
         {
-
-            DB dB = new DB();
-            RequestResult requestResult = dB.insertSong(dtoSong,dtoSong.userId);
+            RequestResult requestResult = db.insertSong(dtoSong,dtoSong.userId);
             return requestResult;
 
         }

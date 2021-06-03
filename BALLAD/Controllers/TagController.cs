@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -13,11 +13,11 @@ namespace BALLAD.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TagController : ApiController
     {
-        
-        // GET: api/Tag
-        public RequestResult Get()
+    public DB db = new DB();
+    // GET: api/Tag
+    public RequestResult Get()
         {
-            DB db = new DB();
+           
             RequestResult requestResult = db.getTagsWithSongDetails();
             return requestResult;
         }
@@ -25,7 +25,7 @@ namespace BALLAD.Controllers
         // GET: api/Tag/5
         public RequestResult Get(int id)
         {
-            DB db = new DB();
+           
             RequestResult requestResult = db.getTagsWithSongDetails(id);
             return requestResult;
         }
@@ -38,9 +38,8 @@ namespace BALLAD.Controllers
         // PUT: api/Tag/5
         public RequestResult Put([FromBody]TextCode tagDetails)
         {
-           //two options!
-            DB dB = new DB();
-            RequestResult requestResult = dB.upgrowPointsTag(tagDetails.SongId, tagDetails.Text);
+          
+            RequestResult requestResult = db.upgrowPointsTag(tagDetails.SongId, tagDetails.Text);
             return requestResult;
         }
 
@@ -48,8 +47,8 @@ namespace BALLAD.Controllers
         [Route("api/upgrowTagPoint")]   
         public RequestResult upgrowTagPoint([FromBody]TextCode tagDetails)
         {
-            DB dB = new DB();
-            RequestResult requestResult = dB.upgrowPointsTag(tagDetails.SongId,tagDetails.Text);
+           
+            RequestResult requestResult = db.upgrowPointsTag(tagDetails.SongId,tagDetails.Text);
             return requestResult;
         }
         [HttpPost]
@@ -57,9 +56,7 @@ namespace BALLAD.Controllers
 
         public RequestResult getTableInform([FromBody] Text usrId)
         {
-            DB dB = new DB();
-
-            RequestResult requestResult1 = dB.getSongsTagsName3(Convert.ToInt32( usrId.Texts));
+            RequestResult requestResult1 = db.getSongsTagsName3(Convert.ToInt32( usrId.Texts));
 
 
             int x = 34;

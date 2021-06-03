@@ -82,7 +82,7 @@
     <Compile Include="Models\Respone\Morphology\Tense.cs" />
     <Compile Include="Models\Respone\Names\NameInfo.cs" />
     <Compile Include="ObjectDumber.cs" />
-    <Compile Include="ProgramAndFunction.cs" />
+    <Compile Include="AnalyzingToTags.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestResult.cs" />
     <Compile Include="Services\Morphology\HebrewMorphology.cs" />

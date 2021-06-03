@@ -12,7 +12,11 @@ namespace BLL
 {
   public class DB
   {
-   public static Ballad120Entities ent = new Ballad120Entities();
+   public Ballad120Entities ent = new Ballad120Entities();
+    public AnalyzingToTags att = new AnalyzingToTags();
+    public Improveement improveement = new Improveement();
+
+
     /// <summary>
     /// תקינות לקוח
     /// </summary>
@@ -50,7 +54,7 @@ namespace BLL
       }
 
     }
-    public static RequestResult deleteSong(Ballad120Entities ent, int songId)
+    public RequestResult deleteSong(Ballad120Entities ent, int songId)
     {
       try
       {
@@ -213,7 +217,7 @@ namespace BLL
         return new RequestResult
         {
           Data = dtoUsr,
-          Message = " the details had saved successfully ",
+          Message = " הפרטים נשמרו בהצלחה ",
           Status = true
         };
       }
@@ -222,7 +226,7 @@ namespace BLL
 
         return new RequestResult
         {
-          Message = " exception : try again ",
+          Message = " שגיאת מערכת. נסה שנית ",
           Status = false
         };
       }
@@ -332,10 +336,10 @@ namespace BLL
     /// </summary>
     /// <param name="song"></param>
     /// <returns></returns>
-    public static List<string> getTags(string song, out string name)
+    public  List<string> getTags(string song, out string name)
     {
 
-      List<string> wordsSong = ProgramAndFunction.startUp(song);
+      List<string> wordsSong = att.startUp(song);
       name = wordsSong[0];
       return wordsSong;
     }
@@ -455,7 +459,7 @@ namespace BLL
               }
             }
 
-            return new RequestResult { Status = true, Message = " song and their tags had sent successfully ", Data = dtoTagSongs };
+            return new RequestResult { Status = true, Message = " השיר והתגיות נשלחו בהצלחה ", Data = dtoTagSongs };
           }
           else//הלקוח דורש את השירים אך האם את כולם או את שלו בלבד, לפי הדגל
           {
@@ -488,7 +492,7 @@ namespace BLL
                 }
               }
 
-              return new RequestResult { Status = true, Message = " song and their tags had sent successfully ", Data = dtoTagSongs };
+              return new RequestResult { Status = true, Message = " השיר והתגיות נשלחו בהצלחה ", Data = dtoTagSongs };
             }
 
           }
@@ -498,7 +502,7 @@ namespace BLL
       }
       catch (Exception e)
       {
-        return new RequestResult { Status = false, Message = " error with the tags and songs sending ", Data = null };
+        return new RequestResult { Status = false, Message = " שגיאה במהלך קליטת השיר או התגיות ", Data = null };
       }
     }
     /// <summary>
@@ -722,7 +726,7 @@ namespace BLL
         return new RequestResult
         {
           Status = true,
-          Message = " the points had increased successfully ",
+          Message = " הנקודות הועלו בהצלחה ",
           Data = countUpgrousedSongs
         };
 
@@ -734,7 +738,7 @@ namespace BLL
         return new RequestResult
         {
           Status = false,
-          Message = " error in increasing the points. look at expection: " + e.GetBaseException(),
+          Message = " שגיאה בהעלאת הנקודות: " + e.GetBaseException(),
           Data = null
         };
       }
@@ -854,7 +858,7 @@ namespace BLL
           return new RequestResult
           {
             Data = dtoTagsNameSongs,
-            Message = " you get the song, tags and 3 top ! ",
+            Message = " התקבל השיר ו3 תגיותיו העיקריות ! ",
             Status = true
 
           };
@@ -902,7 +906,7 @@ namespace BLL
           return new RequestResult
           {
             Data = dtoTagsNameSongs,
-            Message = " you get the song, tags and 3 top ! ",
+            Message = " התקבל השיר ו3 תגיותיו העיקריות ! ",
             Status = true
 
           };
@@ -916,7 +920,7 @@ namespace BLL
         return new RequestResult
         {
           Data = null,
-          Message = " sorry, we didn't succeed to bring songs with tags and three head tags! ",
+          Message = " שגיאה בקבלת השיר ו3 תגיותיו ",
           Status = false
 
         };
@@ -925,7 +929,7 @@ namespace BLL
 
     public RequestResult getMatchSongs(string text, int usrId = 0, string state = "")
     {
-      return Improveement.getMatchSongs(text, ent, usrId, state);
+      return improveement.getMatchSongs(text, ent, usrId, state);
     }
 
     /// <summary>
@@ -936,8 +940,7 @@ namespace BLL
     /// <returns></returns>
     public RequestResult improveementTags(string text, int songId)
     {
-      return Improveement.improveementTags(text, songId, ent);
-
+      return improveement.improveementTags(text, songId, ent);
     }
 
 
