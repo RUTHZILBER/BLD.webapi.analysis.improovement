@@ -1329,7 +1329,7 @@ namespace BLL
     public List<Tag> thirdSplit8Letters(List<Tag> LTags, int index, out int minus, string firstWord1, string firstWord2, string lastWord1, string lastWord2)
     {
 
-      int c = 0;
+      int point = 0;
       //בדיקת רציפות ראשונה ובסיסית, לא כוללנית. שימי לב בעקר לליכוד מילים כפולות ורב מילות הקישור אך לא כולן כי הן כבר בתוככי התגית
 
       if (index < 0 || index + 1 > LTags.Count)//אם התקבלו ערכים לא תקינים, אינדקס לא קיים
@@ -1358,16 +1358,16 @@ namespace BLL
 
           int numWords = current.Count;
           int i = 0;
-          int l = current.Count;
+          int wordsNumber = current.Count;
           //אם הגעתי לשלב זה, ולא גמרתי לסרק: סימן שיש לי תגית בת למעלה מ8 תגים שלא הופרדה
-          if ((l >= 9) && (l <= 16))
+          if ((wordsNumber >= 9) && (wordsNumber <= 16))
           {
-            if (l % 2 == 0)
-              c = l / 2;
+            if (wordsNumber % 2 == 0)
+              point = wordsNumber / 2;
             else
-              c = (l - 1) / 2;
+              point = (wordsNumber - 1) / 2;
 
-            for (i = c; i > 1; i--)//נסיון לפצל את התגית מהחתך עד המילה השניה בתגית בסדר יורד
+            for (i = point; i > 1; i--)//נסיון לפצל את התגית מהחתך עד המילה השניה בתגית בסדר יורד
             {
               if (((i != current.Count - 1
                   && current[i].Word != current[i + 1].Word) || (i == current.Count - 1))
@@ -1414,7 +1414,7 @@ namespace BLL
             }
 
 
-            for (i = c; i < c + 2; i++)//לולא שמנסה לפצל את התגית ב2 המקומות שאחרי נקודת הפיצול, הנחה ל10 תווים
+            for (i = point; i < point + 2; i++)//לולא שמנסה לפצל את התגית ב2 המקומות שאחרי נקודת הפיצול, הנחה ל10 תווים
             {
 
 
@@ -1435,25 +1435,25 @@ namespace BLL
                 return LTags;
               }
             }
-            LTags = splitTagInJPoint(LTags, index, c);//אין ברירה-חותכים בבשר החי, למרות שלכאורה אסור לחתך
+            LTags = splitTagInJPoint(LTags, index, point);//אין ברירה-חותכים בבשר החי, למרות שלכאורה אסור לחתך
             minus = 0;
             return LTags;
 
           }
 
-          if ((l <= 24) && (l >= 17))//מספר המילים בתגית
+          if ((wordsNumber <= 24) && (wordsNumber >= 17))//מספר המילים בתגית
           {
-            if (l % 2 == 0)//זוגי
+            if (wordsNumber % 2 == 0)//זוגי
             {
-              c = l / 3;
+              point = wordsNumber / 3;
 
             }
             else
             {
-              c = (l - 1) / 3;//אי זוגי
+              point = (wordsNumber - 1) / 3;//אי זוגי
 
             }
-            for (i = c; i > 1; i--)//נסיון לפצל את התגית מהחתך עד המילה השניה בתגית בסדר יורד
+            for (i = point; i > 1; i--)//נסיון לפצל את התגית מהחתך עד המילה השניה בתגית בסדר יורד
             {
               if (
                   ((i != current.Count - 1
@@ -1496,7 +1496,7 @@ index != 0
               minus = 1;
               return LTags;
             }
-            for (i = c; i < c + 2; i++)//לולא שמנסה לפצל את התגית ב2 המקומות שאחרי נקודת הפיצול, הנחה ל10 תווים
+            for (i = point; i < point + 2; i++)//לולא שמנסה לפצל את התגית ב2 המקומות שאחרי נקודת הפיצול, הנחה ל10 תווים
             {
 
 
@@ -1519,24 +1519,24 @@ index != 0
                 return LTags;
               }
             }
-            LTags = splitTagInJPoint(LTags, index, c);//אין ברירה-חותכים בבשר החי, למרות שלכאורה אסור לחתך
+            LTags = splitTagInJPoint(LTags, index, point);//אין ברירה-חותכים בבשר החי, למרות שלכאורה אסור לחתך
             minus = 0;
             return LTags;
           }
 
-          if (l > 24)
+          if (wordsNumber > 24)
           {
-            if (l % 2 == 0)
+            if (wordsNumber % 2 == 0)
             {
-              c = l / 4;
+              point = wordsNumber / 4;
 
             }
             else
             {
-              c = (l - 1) / 4;
+              point = (wordsNumber - 1) / 4;
             }
 
-            for (i = c; i > 1; i--)//נסיון לפצל את התגית מהחתך עד המילה השניה בתגית בסדר יורד
+            for (i = point; i > 1; i--)//נסיון לפצל את התגית מהחתך עד המילה השניה בתגית בסדר יורד
             {
               if (
                                               ((i != current.Count - 1
@@ -1584,7 +1584,7 @@ index != 0
               return LTags;
             }
 
-            for (i = c; i < c + 2; i++)//לולא שמנסה לפצל את התגית ב2 המקומות שאחרי נקודת הפיצול, הנחה ל10 תווים
+            for (i = point; i < point + 2; i++)//לולא שמנסה לפצל את התגית ב2 המקומות שאחרי נקודת הפיצול, הנחה ל10 תווים
             {
               if (
                  current[i].Word != current[i - 1].Word
@@ -1606,7 +1606,7 @@ index != 0
                 return LTags;
               }
             }
-            LTags = splitTagInJPoint(LTags, index, c);//אין ברירה-חותכים בבשר החי, למרות שלכאורה אסור לחתך
+            LTags = splitTagInJPoint(LTags, index, point);//אין ברירה-חותכים בבשר החי, למרות שלכאורה אסור לחתך
             minus = 0;
             return LTags;
           }
