@@ -880,13 +880,8 @@ namespace BLL
           result = result & current[current.Count - 1].Ana;//חבור לוגי, האם המילה שפותחת את התגית האחרונה מכילה אותיות משה לב
           if (getListMiddle(current[current.Count - 1].Word) == true || result > 0 || getListMiddle(prev[prev.Count - 1].Word) || (prev[prev.Count - 1].Ana & result2) > 0)//אם המילה הראשונה שבתגית מכילה אותיות משה כלב או שהיא אחת מהמילים הקימות באמצע תגית, או שהמילה שלפניה היא נסמך/חייבת להיות באמצע תגית
           {
-
-
-            {
               tagits = joinTagBackward(tagits, index, timeIteration);//צרף את התגית לתגית הקודמת 
               minus_++;//התחולל שנוי אחד
-            }
-
           }
         }
       }
