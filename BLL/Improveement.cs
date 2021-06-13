@@ -639,9 +639,6 @@ namespace BLL
                     //עד מילה זו
 
                     int areaNewTag = startLine;//המיקום אליו תכנס התגית החדשה
-
-
-
                     string newNextTag = "";
                     int ll = (matchTags[matchTags.Count - 1][0].TagIndex);
                     for (int l = (matchTags[matchTags.Count - 1].Count - 1 + 1); l < songTagsInform[ll].Count; l++)//התגית האחרונה המורכבת מהמילה הבאה ואילך
