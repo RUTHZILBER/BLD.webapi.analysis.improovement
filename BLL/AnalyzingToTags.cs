@@ -1262,12 +1262,14 @@ namespace BLL
     /// </summary>
     /// <param name="song">השיר</param>
     /// <returns>רשימת התגיות מפוצלות</returns>
-    public List<Tag> start(string song1)
+    public List<Tag> start(string song1, out int indexBest, out int indexSecond, out int indexThird)
     {
       int i = 3999;
       string song = cleanSong(song1);//טהרת השיר מתווים אסורים ומרווחים מיותרים 
       string firstWordDitty1, firstWordDitty2, lastWordDitty1, lastWordDitty2;
-
+            indexBest = 0;indexSecond = 0;indexThird = 0;
+            //פונקציה עתידנית: החזרת אינדקסים של התגיות השיכות לפיזמון, אלה 3 השמות המשמעותיים ביותר כרגע, התגיות המשמעותיות: והן תקבלנה את הניקוד הגבוה ביותר כרגע, 50, 60, 70: ולפי סדר זה הן תהיינה בשיר...
+            
       dittyWords(song, out firstWordDitty1, out firstWordDitty2, out lastWordDitty1, out lastWordDitty2);//קבלת מילים פותחות וסוגרות עבור שני הפזמונים הראשיים
       List<List<DWord>> a = getMorphList(song);//הפעלת ניתוח של הספריה לפי האינם שלי
       List<Tag> b = getWords(a);//המרת הערכים לרשימת תגיות
@@ -1623,10 +1625,10 @@ index != 0
     /// </summary>
     /// <param name="song">השיר</param>
     /// <returns>רשימת התגיות</returns>
-    public List<string> startUp(string song)
+    public List<string> startUp(string song, out int indexBest, out int indexSecond, out int indexThird)
     {
       List<string> tags = new List<string>();
-      List<Tag> LTags = start(song);
+      List<Tag> LTags = start(song, out  indexBest, out  indexSecond, out indexThird);
       for (int i = 0; i < LTags.Count; i++)
       {
         tags.Add(LTags[i].FullTag);
@@ -1831,7 +1833,8 @@ index != 0
         var WordsArray = arr[index].Split(' ');
         string songName = WordsArray[0] + ' ' + WordsArray[1];
         Console.Write(" השיר:  " + songName + " ");
-        List<string> abc1 = startUp(arr[index]);
+                int xx = 0, yy = 0, zz = 0;
+        List<string> abc1 = startUp(arr[index],out xx,out yy,out zz);
         Console.WriteLine(" מספר התגיות הוא  :  " + abc1.Count);
         string crowded1 = lightStream(abc1);
         // string crowdedReverse = lightStreamReverse(abc1);
