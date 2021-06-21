@@ -163,6 +163,7 @@ namespace BLL
 
                 if (usrs.Where(i => i.email == dtoUsr.email).ToList().Count > 0)
                 {
+                    
                     if (usrs.Where(i => i.userName == dtoUsr.userName).ToList().Count > 0)
                     {
                         return new RequestResult
