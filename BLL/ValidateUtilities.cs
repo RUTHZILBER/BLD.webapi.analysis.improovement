@@ -60,13 +60,12 @@ namespace BLL
         /// <returns></returns>
         public static bool isValidatePassword(string str)
         {
-            Regex rg1 = new Regex(@"[A - Za - z]");
-            Regex rg2 = new Regex(@"^[@#a][A-Za-z0-9]{1,7}$");
-            Regex rg3 = new Regex("@[u]");
-            return rg1.IsMatch(str) && rg2.IsMatch(str) && !rg3.IsMatch(str);
+            //Regex rg1 = new Regex(@"[A - Za - z]");rg1.IsMatch(str) &&
+            Regex rg2 = new Regex(@"^[@#a][A-Za-z0-9]{1,8}$");
+            //Regex rg3 = new Regex("@[u]"); && !rg3.IsMatch(str)
+            return  rg2.IsMatch(str);
 
         }
-
         public static bool isValidateIdentityNumber(string IDNum)
         {
 
